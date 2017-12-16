@@ -1,0 +1,56 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Reportte de Usuario
+                <small>*****</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <!-- <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+            <div class="table-responsive">
+
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <td>ID</td>
+                        <td>first name</td>
+                        <td>Last Name</td>
+                        <td>Username</td>
+                        <td>Email</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% if object_list %}
+                    {% for user in object_list %}
+
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <a href="{% url 'usuario:registro_editar' user.id %}"
+                               class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="{% url 'usuario:registro_eliminar' user.id %}"
+                               class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% else %}
+                    <h1>no hay registros de usuario</h1>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

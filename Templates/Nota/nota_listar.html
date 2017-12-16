@@ -1,0 +1,66 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Reporte de Nota
+                <small>*****</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <!-- <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+            <div class="table-responsive">
+
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <td>ID</td>
+                        <td>Codigo</td>
+                        <td>Nombre</td>
+                        <td>Docente</td>
+                        <td>Curso</td>
+                        <td>Nota 1</td>
+                        <td>Nota 2</td>
+                        <td>Nota 3</td>
+                        <td>Promedio</td>
+                        <td>Estado</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% if object_list %}
+                    {% for nota in object_list %}
+
+                    <tr>
+                        <td>{{ docente.id }}</td>
+                        <td>{{ nota.cod_nota }}</td>
+                        <td>{{ nota.alumno }}</td>
+                        <td>{{ nota.docente }}</td>
+                        <td>{{ nota.curso }}</td>
+                        <td>{{ nota.nota1 }}</td>
+                        <td>{{ nota.nota2 }}</td>
+                        <td>{{ nota.nota3 }}</td>
+                        <td>{{ nota.promedio }}</td>
+                        <td>{{ nota.estado }}</td>
+                        <td>
+                            <a href="{% url 'nota:nota_editar' nota.id %}"
+                               class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="{% url 'nota:nota_eliminar' nota.id %}"
+                               class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% else %}
+                    <h1>no hay registros de mascota</h1>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

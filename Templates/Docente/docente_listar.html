@@ -1,0 +1,60 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Reportte de Docentes
+                <small>*****</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <!-- <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+            <div class="table-responsive">
+
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <td>ID</td>
+                        <td>Codigo</td>
+                        <td>Nombre</td>
+                        <td>Apellido</td>
+                        <td>Sexo</td>
+                        <td>Especialidad</td>
+                        <td>Curso</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% if object_list %}
+                    {% for docente in object_list %}
+
+                    <tr>
+                        <td>{{ docente.id }}</td>
+                        <td>{{ docente.cod_docente }}</td>
+                        <td>{{ docente.nombre }}</td>
+                        <td>{{ docente.apellido }}</td>
+                        <td>{{ docente.sexo}}</td>
+                        <td>{{ docente.especialidad }}</td>
+                        <td>{{ docente.curso }}</td>
+                        <td>
+                            <a href="{% url 'docente:docente_editar' docente.id %}"
+                               class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="{% url 'docente:docente_eliminar' docente.id %}"
+                               class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% else %}
+                    <h1>no hay registros de docente</h1>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extrastactic %}
+     {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+
+    <title>{% block title %} Sitema de Matricula - Nota {% endblock %}</title>
+</head>
+
+  <body class="login">
+
+{% block content %}
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
+
+
+{% block extrajs %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+
+{% endblock %}
+
+</body>
+
+</html>

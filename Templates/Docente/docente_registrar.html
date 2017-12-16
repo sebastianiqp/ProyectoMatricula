@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Registros de Docentes
+                <small>Proyecto</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <form method="post" data-parsley-validate="" class="form-horizontal form-label-left"
+                  novalidate="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.cod_docente.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.cod_docente}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.nombre.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.nombre}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.apellido.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.apellido}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.dni.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.dni}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.sexo.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.sexo}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.especialidad.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.especialidad}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.direccion.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.direccion}}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">{{form.curso.label}}</label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form.curso}}
+                    </div>
+                </div>
+
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <button id="send" type="submit" class="btn btn-success">Guardar</button>
+                        <button type="reset" class="btn btn-primary">Cancelar</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+

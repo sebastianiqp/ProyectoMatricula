@@ -1,0 +1,62 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Reportte de Matricula
+                <small>*****</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <!-- <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>-->
+            <div class="table-responsive">
+
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <td>ID</td>
+                        <td>Codigo</td>
+                        <td>Especialidad</td>
+                        <td>Alumno</td>
+                        <td>Docente</td>
+                        <td>Curso</td>
+                        <td>Turno</td>
+                        <td>Fecha</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% if object_list %}
+                    {% for matricula in object_list %}
+
+                    <tr>
+                        <td>{{ matricula.id }}</td>
+                        <td>{{ matricula.cod_matricula }}</td>
+                        <td>{{ matricula.especialidad }}</td>
+                        <td>{{ matricula.alumno }}</td>
+                        <td>{{ matricula.docente}}</td>
+                        <td>{{ matricula.curso }}</td>
+                        <td>{{ matricula.categoria }}</td>
+                        <td>{{ matricula.mfecha_registro }}</td>
+                        <td>
+                            <a href="{% url 'matricula:matricula_editar' matricula.id %}"
+                               class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="{% url 'matricula:matricula_eliminar' matricula.id %}"
+                               class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% else %}
+                    <h1>no hay registros de matricula</h1>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

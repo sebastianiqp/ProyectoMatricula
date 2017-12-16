@@ -1,0 +1,228 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extrastactic %}
+     {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+
+    <title>{% block title %} Sitema de Matricula - Nota {% endblock %}</title>
+</head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-institution"></i> <span>Matricula</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="{% static 'images/img.jpg' %}" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido,</span>
+                <h2>Administrador</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+              <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                  <div class="menu_section">
+                      <h3>General</h3>
+                      <ul class="nav side-menu">
+
+                          <li><a><i class="fa fa-male"></i> Alumno <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'alumno:alumno_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'alumno:alumno_listar' %}">Listar Alumno</a></li>
+                              </ul>
+                          </li>
+
+                          <li><a><i class="fa fa-institution"></i> Docente <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'docente:docente_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'docente:docente_listar' %}">Listar Docente</a></li>
+                              </ul>
+                          </li>
+
+                          <li><a><i class="fa fa-tasks"></i> Curso <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'curso:curso_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'curso:curso_listar' %}">Listar Curso</a></li>
+                              </ul>
+                          </li>
+                          <li><a><i class="fa fa-tag"></i> Nota <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'nota:nota_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'nota:nota_listar' %}">Listar Nota</a></li>
+                              </ul>
+                          </li>
+                          <li><a><i class="fa fa-graduation-cap"></i> Especialidad <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'especialidad:especialidad_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'especialidad:especialidad_listar' %}">Listar Nota</a></li>
+                              </ul>
+                          </li>
+                           <li><a><i class="fa fa-navicon"></i> Categoria <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'categoria:categoria_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'categoria:categoria_listar' %}">Listar Nota</a></li>
+                              </ul>
+                          </li>
+                          <li><a><i class="fa fa-legal"></i> Matricula <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'matricula:matricula_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'matricula:matricula_listar' %}">Listar Nota</a></li>
+                              </ul>
+                          </li>
+
+                          <li><a><i class="fa fa-user"></i> Usuario <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'usuario:registro_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'usuario:registro_listar' %}">Listar Usuario</a></li>
+                              </ul>
+                          </li>
+
+                          <li><a><i class="fa fa-exchange"></i> API <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'alumno:api' %}">API Alumno</a></li>
+                                  <li><a href="{% url 'alumno:api' %}">API Docente</a></li>
+                                  <li><a href="{% url 'curso:curso_reportes' %}">API Curso</a></li>
+                                  <li><a href="{% url 'nota:nota_reportes' %}">API Nota</a></li>
+                                  <li><a href="{% url 'especialidad:especialidad_reportes' %}">API Especialidad</a></li>
+                                  <li><a href="{% url 'categoria:categoria_reportes' %}">API Categoria</a></li>
+                                  <li><a href="{% url 'matricula:matricula_reportes' %}">API Matricula</a></li>
+                              </ul>
+                          </li>
+                          <li><a><i class="fa fa-desktop"></i> Reporte <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                  <li><a href="{% url 'alumno:alumno_reportes' %}">Reporte Alumno</a></li>
+                                  <li><a href="{% url 'docente:docente_reportes' %}">Reporte Docente</a></li>
+                                  <li><a href="{% url 'curso:curso_reportes' %}">Reporte Curso</a></li>
+                                  <li><a href="{% url 'nota:nota_reportes' %}">Reporte Nota</a></li>
+                                  <li><a href="{% url 'especialidad:especialidad_reportes' %}">Reporte Especialidad</a></li>
+                                  <li><a href="{% url 'categoria:categoria_reportes' %}">Reporte Categoria</a></li>
+                                  <li><a href="{% url 'matricula:matricula_reportes' %}">Reporte Matricula</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+                  <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'images/img.jpg' %}" alt="">{{ user.username }}
+                            <span class=" fa fa-angle-down"></span>
+                          </a>
+                          <ul class="dropdown-menu dropdown-usermenu pull-right">
+                            <li>
+
+                                <!--<a href="login.html"><i class="fa fa-sign-out pull-right"></i> Logout</a>-->
+                                <a href="{% url 'auth_logout' %}"> Logout</a>
+                            </li>
+                          </ul>
+                        </li>
+                   </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Sistema de Matriucula <small> </small></h3>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="row">
+
+
+              <div class="clearfix"></div>
+
+			<!-- FORMULARIO-->
+            {% block content %}
+              <h4>Contenido de la Aplicacion mascota</h4>
+            {% endblock %}
+           <!-- /FORMULARIO-->
+
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+              <p>SISTEMA DE MATRICULA  <code>SEBASTIANI QUIZA PUELLES</code>
+                 <h1 class="text-danger">Django - Pyhton</h1>
+              </p>
+
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+
+
+
+{% block footer %}
+{% endblock %}
+
+
+
+{% block extrajs %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+
+{% endblock %}
+
+</body>
+</html>
